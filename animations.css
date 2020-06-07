@@ -1,0 +1,7 @@
+.delete{
+    transform: translateY(-60px);
+    opacity: 0;
+}
+article{
+    transition: all 0.5s ease;
+}
