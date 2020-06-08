@@ -1,6 +1,7 @@
 import Store from './Store.js';
 import UI from './UI.js';
 import Product from './Product.js';
+import './chance.js';
 
 
 const form = document.getElementById('formProduct');
@@ -9,9 +10,9 @@ form.addEventListener('submit', (e)=>{
     const name = document.querySelector('#name');
     const description = document.querySelector('#description');
     const price = document.querySelector('#price');
-
+    let id = chance.guid();
     //Intance of Product
-    const product = new Product(name.value, description.value, price.value);
+    const product = new Product(id,name.value, description.value, price.value);
 
     //Elements to insert message
     let container = document.getElementById('formContainer');

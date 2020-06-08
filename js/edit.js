@@ -5,12 +5,15 @@ import UI from './UI.js';
 let product;
 
 document.addEventListener('DOMContentLoaded', () =>{
-    if(localStorage.getItem('product-name') != null){
-        let name = localStorage.getItem('product-name');
-        product = Store.searchByName(name);
+    if(localStorage.getItem('product-id') != null){
+        let id = localStorage.getItem('product-id');
+        product = Store.searchByName(id);
         document.querySelector('#name').value = product.name;
         document.querySelector('#description').value = product.description;
         document.querySelector('#price').value = product.price;
+        let form = document.getElementById('formProduct');
+        let before = form.firstChild;
+        UI.appendHiddenInput(product.id,form,before);
     }
 })
 
@@ -19,8 +22,9 @@ form.addEventListener('submit', (e)=>{
     let name = document.querySelector('#name');
     let description = document.querySelector('#description');
     let price = document.querySelector('#price');
+    let id = document.getElementById('prod-id').value;
 
-    const product = new Product(name.value, description.value, price.value);
+    const product = new Product(id, name.value, description.value, price.value);
 
     //Elements to insert message
     let container = document.getElementById('formContainer');

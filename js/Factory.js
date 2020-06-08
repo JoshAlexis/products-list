@@ -37,6 +37,13 @@ class Factory{
         button.innerText = text;
         return button;
     }
+
+    static createHidden(id){
+        const input = document.createElement('input');
+        input.type = 'hidden';
+        input.value = id;
+        return input;
+    }
 }
 
 export default Factory

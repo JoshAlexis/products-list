@@ -27,6 +27,7 @@ class UI{
         let cardFooter = Factory.createCardFooter();
         let btnDelete = Factory.createButton('danger','btn-delete', 'Delete');
         let btnEdit = Factory.createButton('primary','btn-edit', 'Edit');
+        let hidden = Factory.createHidden(product.id);
 
 
         cardHeader.innerHTML = `<h5>${product.name}</h5>`;
@@ -38,6 +39,7 @@ class UI{
         divCard.appendChild(cardHeader);
         divCard.appendChild(cardBody);
         divCard.appendChild(cardFooter);
+        divCard.appendChild(hidden);
         
         article.appendChild(divCard);
 
@@ -80,6 +82,19 @@ class UI{
                 elem.parentElement.parentElement.parentElement.remove();
             });
         }
+    }
+    /**
+     * Insert a input hidden with the id of the product
+     * to edit
+     * @param {String} id - The id of the product
+     * @param {Element} form - The from to insert the element
+     * @param {Element} before - The element after the insert the input hidden
+     */
+    static appendHiddenInput(id,form,before){
+        let hidden = Factory.createHidden(id);
+        hidden.setAttribute('id','prod-id');
+        console.log(before);
+        form.insertBefore(hidden, before);
     }
 }
 

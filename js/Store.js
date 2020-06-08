@@ -1,6 +1,6 @@
 class Store{
     /**
-     * Retrives the products from localStorage, if they exists.
+     * Retrive the products from localStorage, if they exists.
      */
     static getProducts(){
         let products;
@@ -21,28 +21,28 @@ class Store{
         localStorage.setItem('products',JSON.stringify(products));
     }
     /**
-     * Deletes one product from the localStorage using the name
-     * @param {String} name - The name of the product to delete 
+     * Delete one product from the localStorage using the name
+     * @param {String} id - The id of the product to delete 
      */
-    static deleteProduct(name){
+    static deleteProduct(id){
         let products = this.getProducts();
         products.forEach((product, index) => {
-            if(product.name === name){
+            console.log(id);
+            if(product.id === id.toString()){
                 products.splice(index, 1);
             }
         });
         localStorage.setItem('products',JSON.stringify(products));
     }
     /**
-     * Updates a product from the localStorage using the name of the product.
+     * Update a product from the localStorage using the name of the product.
      * The name of the product cannot be changed.
      * @param {Object} product - An object type Product
      */
     static updateProduct(product){
         let products = this.getProducts();
-        console.log(product);
         products.forEach((item, index) => {
-            if(item.name === product.name){
+            if(item.id === product.id){
                 products.splice(index, 1, product);
             }
         });
@@ -52,11 +52,11 @@ class Store{
      * Search into the localStorage using the name
      * @param {String} name - The name of the product to search
      */
-    static searchByName(name){
+    static searchByName(id){
         let products = this.getProducts();
         let product;
         products.forEach(item => {
-            if(item.name ===  name){
+            if(item.id ===  id){
                 product = item;
             }
         });
