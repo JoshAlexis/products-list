@@ -93,7 +93,7 @@ class UI{
     static appendHiddenInput(id,form,before){
         let hidden = Factory.createHidden(id);
         hidden.setAttribute('id','prod-id');
-        console.log(before);
+        //console.log(before);
         form.insertBefore(hidden, before);
     }
 }
