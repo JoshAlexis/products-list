@@ -16,6 +16,6 @@ document.querySelector('.row').addEventListener('click', (e) => {
         Store.deleteProduct(id);
     }else if(e.target.classList.contains('btn-primary')){
         localStorage.setItem('product-id',id);
-        window.location.href = window.location.origin + '/edit.html';
+        window.location.href = window.location.href + 'edit.html';
     }
 });
